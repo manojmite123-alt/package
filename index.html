@@ -412,6 +412,23 @@ footer p {
     <p>Pravasam Tourist Package Booking Website</p>
     <p>Explore More. Travel Better.</p>
 </footer>
+            
+<label for="destination">Select Destination</label>
+<select id="destination" required onchange="showOtherPlace()">
+    <option value="">Choose a destination</option>
+    <option value="Chikmagalur">Chikmagalur</option>
+    <option value="Kerala">Kerala</option>
+    <option value="Goa">Goa</option>
+    <option value="Manali">Manali</option>
+    <option value="Other">Other Places</option>
+</select>
+
+<div id="otherPlaceDiv" style="display: none;">
+    <label for="otherPlace">Enter Your Preferred Place</label>
+    <input type="text" id="otherPlace"
+           placeholder="Enter destination name">
+</div>
+
 
 
 
@@ -488,6 +505,28 @@ footer p {
         }
     );
 </script>
+    
+function showOtherPlace() {
+    const destination = document.getElementById("destination").value;
+    const otherDiv = document.getElementById("otherPlaceDiv");
+    const otherInput = document.getElementById("otherPlace");
+
+    if (destination === "Other") {
+        otherDiv.style.display = "block";
+        otherInput.required = true;
+    } else {
+        otherDiv.style.display = "none";
+        otherInput.required = false;
+        otherInput.value = "";
+    }
+}
+
+let destination = document.getElementById("destination").value;
+
+if (destination === "Other") {
+    destination = document.getElementById("otherPlace").value.trim();
+}
+
 
 
 </body>
