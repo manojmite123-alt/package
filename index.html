@@ -380,10 +380,30 @@ footer p {
             <textarea id="messageBox" rows="3"
                       placeholder="Any special requirements?"></textarea>
 
+                <p>Pravasam Tourist Package Booking Website</p>
+    <p>Explore More. Travel Better.</p>
+</footer>
+            
+<label for="destination">Select Destination</label>
+<select id="destination" required onchange="showOtherPlace()">
+    <option value="">Choose a destination</option>
+    <option value="Chikmagalur">Chikmagalur</option>
+    <option value="Kerala">Kerala</option>
+    <option value="Goa">Goa</option>
+    <option value="Manali">Manali</option>
+    <option value="Other">Other Places</option>
+</select>
+
+<div id="otherPlaceDiv" style="display: none;">
+    <label for="otherPlace">Enter Your Preferred Place</label>
+    <input type="text" id="otherPlace"
+           placeholder="Enter destination name">
+</div>
+
             <button type="submit" class="btn">Submit Booking</button>
             
 <!-- WhatsApp Booking Button -->
-<a href="https://wa.me/91YOURNUMBER"
+<a href="https://wa.me/919353934053"
    class="whatsapp-btn"
    target="_blank"
    rel="noopener noreferrer">
@@ -409,25 +429,6 @@ footer p {
 </a>
 
 
-    <p>Pravasam Tourist Package Booking Website</p>
-    <p>Explore More. Travel Better.</p>
-</footer>
-            
-<label for="destination">Select Destination</label>
-<select id="destination" required onchange="showOtherPlace()">
-    <option value="">Choose a destination</option>
-    <option value="Chikmagalur">Chikmagalur</option>
-    <option value="Kerala">Kerala</option>
-    <option value="Goa">Goa</option>
-    <option value="Manali">Manali</option>
-    <option value="Other">Other Places</option>
-</select>
-
-<div id="otherPlaceDiv" style="display: none;">
-    <label for="otherPlace">Enter Your Preferred Place</label>
-    <input type="text" id="otherPlace"
-           placeholder="Enter destination name">
-</div>
 
 
 
@@ -504,7 +505,6 @@ footer p {
             this.reset();
         }
     );
-</script>
     
 function showOtherPlace() {
     const destination = document.getElementById("destination").value;
@@ -528,6 +528,6 @@ if (destination === "Other") {
 }
 
 
-
+    </script>
 </body>
 </html>
