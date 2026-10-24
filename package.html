@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravasam - Tourist Packages</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7f6;
+            color: #333;
+        }
+
+        header {
+            background: #064e3b;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            color: #facc15;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+        .hero {
+            height: 420px;
+            background:
+                linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #facc15;
+            color: #064e3b;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 50px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #064e3b;
+            font-size: 30px;
+        }
+
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px #00000015;
+            transition: transform .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: #064e3b;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .price {
+            color: #dc7c00;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .booking {
+            background: #e5f3ed;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #00000010;
+        }
+
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #message {
+            margin-top: 15px;
+            color: #064e3b;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        footer {
+            background: #064e3b;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+        
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px #0003;
+    z-index: 1000;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+}
+
+.instagram-link {
+    color: #facc15;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.instagram-link:hover {
+    color: #ff8c42;
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+.instagram-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px #0003;
+    z-index: 1000;
+}
+
+.instagram-btn:hover {
+    opacity: 0.85;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Pravasam Tourist Packages</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#packages">Packages</a>
+            <a href="#about">About</a>
+            <a href="#booking">Book Now</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <h2>Explore the World</h2>
+        <p>Discover beautiful places with affordable tourist packages.</p>
+        <a href="#packages" class="btn">Explore Packages</a>
+    </div>
+
+    <section id="packages">
+        <h2 class="section-title">Popular Tour Packages</h2>
+
+        <div class="packages">
+
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0s6CYriTR2f5JQiCkZDfx1FEgms7JYemwdr9UpboR0HNtR1MfR4Z9LDhQ&s=10"
+                     alt="Chikmagalur hills">
+                <div class="card-content">
+                    <h3>Chikmagalur</h3>
+                    <p>Duration: 2 Days / 1 Night</p>
+                    <p>Enjoy green hills, coffee estates and waterfalls.</p>
+                    <div class="price">₹3,499 / person</div>
+                    <button class="btn" onclick="selectPackage('Chikmagalur')">
+                        Book Package
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80"
+                     alt="Kerala backwaters">
+                <div class="card-content">
+                    <h3>Kerala</h3>
+                    <p>Duration: 3 Days / 2 Nights</p>
+                    <p>Experience backwaters, beaches and beautiful nature.</p>
+                    <div class="price">₹4,999 / person</div>
+                    <button class="btn" onclick="selectPackage('Kerala')">
+                        Book Package
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80"
+                     alt="Goa beach">
+                <div class="card-content">
+                    <h3>Goa</h3>
+                    <p>Duration: 2 Days / 1 Night</p>
+                    <p>Enjoy sunny beaches, sightseeing and sunset views.</p>
+                    <div class="price">₹6,499 / person</div>
+                    <button class="btn" onclick="selectPackage('Goa')">
+                        Book Package
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+                     alt="Himalayan mountains">
+                <div class="card-content">
+                    <h3>Manali</h3>
+                    <p>Duration: 5 Days / 4 Nights</p>
+                    <p>Explore mountain scenery, valleys and adventure spots.</p>
+                    <div class="price">₹9,999 / person</div>
+                    <button class="btn" onclick="selectPackage('Manali')">
+                        Book Package
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About TravelGo</h2>
+        <p style="text-align:center; line-height:1.8;">
+            TravelGo helps travellers discover amazing destinations
+            at affordable prices. We offer tour packages for families,
+            friends, students and adventure lovers.
+        </p>
+    </section>
+
+    <section class="booking" id="booking">
+        <h2 class="section-title">Book Your Tour</h2>
+
+        <form id="bookingForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="destination">Select Destination</label>
+            <select id="destination" required>
+                <option value="">Choose a package</option>
+                <option value="Chikmagalur">Chikmagalur</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Goa">Goa</option>
+                <option value="Manali">Manali</option>
+            </select>
+
+            <label for="date">Travel Date</label>
+            <input type="date" id="date" required>
+
+            <label for="people">Number of Travellers</label>
+            <input type="number" id="people" min="1"
+                   value="1" required>
+
+            <label for="messageBox">Special Requests</label>
+            <textarea id="messageBox" rows="3"
+                      placeholder="Any special requirements?"></textarea>
+
+            <button type="submit" class="btn">Submit Booking</button>
+            
+<!-- WhatsApp Booking Button -->
+<a href="https://wa.me/91YOURNUMBER"
+   class="whatsapp-btn"
+   target="_blank"
+   rel="noopener noreferrer">
+    Chat on WhatsApp
+</a>
+
+<footer>
+    <p>
+        Instagram:
+        <a href="https://www.instagram.com/_pravasam_tourist_packages_/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="instagram-link">
+            @_pravasam_tourist_packages_
+        </a>
+    </p>
+    
+<a href="https://www.instagram.com/_pravasam_tourist_packages_/"
+   class="instagram-btn"
+   target="_blank"
+   rel="noopener noreferrer">
+    📸 Follow Us
+</a>
+
+
+    <p>Pravasam Tourist Package Booking Website</p>
+    <p>Explore More. Travel Better.</p>
+</footer>
+
+
+
+            <p id="message"></p>
+        </form>
+    </section>
+
+    <footer>
+        <p>Instagram: @_pravasam_tourist_packages_ | Pravasam Tourist Package Booking Website</p>
+        <p>Explore More. Travel Better.</p>
+    </footer>
+
+    <script>
+        function selectPackage(destination) {
+            document.getElementById("destination").value = destination;
+
+            document.getElementById("booking").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        document.getElementById("bookingForm").addEventListener(
+            "submit", function(event) {
+                event.preventDefault();
+
+                const name = document.getElementById("name").value;
+                const destination =
+                    document.getElementById("destination").value;
+                const date = document.getElementById("date").value;
+                const people = document.getElementById("people").value;
+
+                document.getElementById("message").textContent =
+                    "Thank you, " + name + "! Your booking request for " +
+                    destination + " for " + people +
+                    " traveller(s) on " + date +
+                    " has been recorded in this demo.";
+
+                this.reset();
+            }
+        );
+    </script>
+    
+<script>
+    function selectPackage(destination) {
+        document.getElementById("destination").value = destination;
+
+        document.getElementById("booking").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    document.getElementById("bookingForm").addEventListener(
+        "submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const destination = document.getElementById("destination").value;
+            const date = document.getElementById("date").value;
+            const people = document.getElementById("people").value;
+
+            alert(
+                "Booking Submitted Successfully!\n\n" +
+                "Name: " + name + "\n" +
+                "Destination: " + destination + "\n" +
+                "Travel Date: " + date + "\n" +
+                "Travellers: " + people
+            );
+
+            document.getElementById("message").textContent =
+                "Thank you, " + name +
+                "! Your booking request has been submitted.";
+
+            this.reset();
+        }
+    );
+</script>
+
+
+</body>
+</html>
