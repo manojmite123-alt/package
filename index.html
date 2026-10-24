@@ -52,11 +52,10 @@
             padding: 100px 20px;
             text-align: center;
             color: white;
-            background: linear-gradient(
-                rgba(0, 0, 0, 0.55),
-                rgba(0, 0, 0, 0.55)
-            ), url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80")
-            center/cover no-repeat;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80")
+                center/cover no-repeat;
         }
 
         .hero h2 {
@@ -311,7 +310,7 @@
                 <h3>Chikmagalur</h3>
                 <p>Enjoy green hills, coffee estates and beautiful waterfalls.</p>
                 <div class="price">₹3,499 / person</div>
-                <button class="btn" onclick="selectPackage('Chikmagalur')">
+                <button type="button" class="btn" onclick="selectPackage('Chikmagalur')">
                     Book Now
                 </button>
             </div>
@@ -324,7 +323,7 @@
                 <h3>Kerala</h3>
                 <p>Discover peaceful backwaters, nature and green landscapes.</p>
                 <div class="price">₹4,999 / person</div>
-                <button class="btn" onclick="selectPackage('Kerala')">
+                <button type="button" class="btn" onclick="selectPackage('Kerala')">
                     Book Now
                 </button>
             </div>
@@ -337,7 +336,7 @@
                 <h3>Goa</h3>
                 <p>Enjoy beaches, sunsets and exciting holiday experiences.</p>
                 <div class="price">₹6,499 / person</div>
-                <button class="btn" onclick="selectPackage('Goa')">
+                <button type="button" class="btn" onclick="selectPackage('Goa')">
                     Book Now
                 </button>
             </div>
@@ -350,20 +349,20 @@
                 <h3>Manali</h3>
                 <p>Experience mountain views, adventure and beautiful valleys.</p>
                 <div class="price">₹9,999 / person</div>
-                <button class="btn" onclick="selectPackage('Manali')">
+                <button type="button" class="btn" onclick="selectPackage('Manali')">
                     Book Now
                 </button>
             </div>
 
             <div class="card">
                 <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Tirumala_090615.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
-                    alt="Kerala backwaters"
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Tirumala_090615.jpg"
+                    alt="Tirumala temple hills"
                 >
                 <h3>Tirupati</h3>
-                <p>Hilltop peace and divine grace.</p>
+                <p>Experience the peaceful hills and spiritual atmosphere of Tirumala.</p>
                 <div class="price">₹5,499 / person</div>
-                <button class="btn" onclick="selectPackage('Tirupati')">
+                <button type="button" class="btn" onclick="selectPackage('Tirupati')">
                     Book Now
                 </button>
             </div>
@@ -411,6 +410,7 @@
                     <option value="Kerala">Kerala</option>
                     <option value="Goa">Goa</option>
                     <option value="Manali">Manali</option>
+                    <option value="Tirupati">Tirupati</option>
                     <option value="Other">Other Places</option>
                 </select>
 
@@ -448,7 +448,6 @@
                 </button>
 
                 <div id="confirmation" role="status"></div>
-
             </form>
         </div>
     </section>
@@ -486,32 +485,26 @@
     </div>
 
     <script>
-        // IMPORTANT: Replace this with your WhatsApp number.
-        // Include country code 91. Do not use + or spaces.
+        // WhatsApp number with country code 91
         const whatsappNumber = "919353934053";
 
-        const destinationSelect =
-            document.getElementById("destination");
+        const destinationSelect = document.getElementById("destination");
+        const otherPlaceDiv = document.getElementById("otherPlaceDiv");
+        const otherPlaceInput = document.getElementById("otherPlace");
 
-        const otherPlaceDiv =
-            document.getElementById("otherPlaceDiv");
-
-        const otherPlaceInput =
-            document.getElementById("otherPlace");
-
-        // Show the custom destination field when "Other Places" is selected.
+        // Show or hide the custom destination field.
         destinationSelect.addEventListener("change", function () {
-            if (this.value === "Other") {
-                otherPlaceDiv.style.display = "block";
-                otherPlaceInput.required = true;
-            } else {
-                otherPlaceDiv.style.display = "none";
-                otherPlaceInput.required = false;
+            const isOther = this.value === "Other";
+
+            otherPlaceDiv.style.display = isOther ? "block" : "none";
+            otherPlaceInput.required = isOther;
+
+            if (!isOther) {
                 otherPlaceInput.value = "";
             }
         });
 
-        // When a package card is selected, choose that destination in the form.
+        // Select a package and move to the booking form.
         function selectPackage(destination) {
             destinationSelect.value = destination;
             destinationSelect.dispatchEvent(new Event("change"));
@@ -521,32 +514,23 @@
             });
         }
 
-        // Send booking details to WhatsApp.
+        // Prepare the booking details and open WhatsApp.
         document.getElementById("bookingForm").addEventListener(
             "submit",
             function (event) {
                 event.preventDefault();
 
-                const name =
-                    document.getElementById("fullName").value.trim();
-
-                const email =
-                    document.getElementById("email").value.trim();
-
+                const name = document.getElementById("fullName").value.trim();
+                const email = document.getElementById("email").value.trim();
                 let destination = destinationSelect.value;
 
                 if (destination === "Other") {
                     destination = otherPlaceInput.value.trim();
                 }
 
-                const date =
-                    document.getElementById("travelDate").value;
-
-                const travellers =
-                    document.getElementById("travellers").value;
-
-                const requests =
-                    document.getElementById("specialRequests").value.trim();
+                const date = document.getElementById("travelDate").value;
+                const travellers = document.getElementById("travellers").value;
+                const requests = document.getElementById("specialRequests").value.trim();
 
                 const message =
                     "NEW TOUR BOOKING - PRAVASAM\n\n" +
@@ -558,40 +542,25 @@
                     "Special Requests: " + (requests || "None") + "\n\n" +
                     "Please contact me regarding this booking.";
 
-                // Check that the WhatsApp number has been changed.
-                if (whatsappNumber === "919353934053") {
-                    alert(
-                        "Please add your real WhatsApp number in the code first."
-                    );
-                    return;
-                }
-
                 const whatsappURL =
-                    "https://wa.me/" +
-                    whatsappNumber +
-                    "?text=" +
-                    encodeURIComponent(message);
+                    "https://wa.me/" + whatsappNumber +
+                    "?text=" + encodeURIComponent(message);
 
-                document.getElementById("confirmation").style.display =
-                    "block";
+                const confirmation = document.getElementById("confirmation");
+                confirmation.style.display = "block";
+                confirmation.textContent =
+                    "WhatsApp is opening with your booking details. Press Send in WhatsApp to submit your enquiry.";
 
-                document.getElementById("confirmation").textContent =
-                    "Your booking details are ready. Send the message in WhatsApp to complete your enquiry.";
+                const newWindow = window.open(whatsappURL, "_blank");
 
-                // Open WhatsApp with the booking details filled in.
-                const newWindow = window.open(
-                    whatsappURL,
-                    "_blank"
-                );
-
-                // Fallback if the browser blocks the new window.
+                // Fallback if the browser blocks the new tab.
                 if (!newWindow) {
                     window.location.href = whatsappURL;
                 }
             }
         );
 
-        // Keep the floating WhatsApp contact button in sync with your number.
+        // Set the floating WhatsApp contact button.
         document.getElementById("whatsappContact").href =
             "https://wa.me/" + whatsappNumber;
     </script>
