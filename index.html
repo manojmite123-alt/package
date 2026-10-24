@@ -11,101 +11,95 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #f4f7f6;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background: #f7f8f5;
+            color: #222;
             line-height: 1.6;
         }
 
         header {
-            background: #064e3b;
+            background: #123d2b;
             color: white;
-            padding: 20px 8%;
+            padding: 18px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
         }
 
         header h1 {
-            color: #facc15;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            font-size: 25px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
+            margin: 0 9px;
             font-weight: bold;
         }
 
         nav a:hover {
-            color: #facc15;
+            color: #ffd166;
         }
 
         .hero {
             min-height: 420px;
-            background:
-                linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80")
-                center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 100px 20px;
             text-align: center;
             color: white;
-            padding: 25px;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.55),
+                rgba(0, 0, 0, 0.55)
+            ), url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80")
+            center/cover no-repeat;
         }
 
         .hero h2 {
-            font-size: 45px;
+            font-size: 42px;
             margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 19px;
             margin-bottom: 25px;
         }
 
         .btn {
             display: inline-block;
-            background: #facc15;
-            color: #064e3b;
-            padding: 12px 22px;
+            background: #e8a82d;
+            color: #17251b;
+            padding: 12px 24px;
             border: none;
             border-radius: 6px;
             text-decoration: none;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
         }
 
         .btn:hover {
-            background: #eab308;
+            background: #ffbf47;
         }
 
         section {
-            padding: 50px 8%;
+            padding: 55px 7%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
-            color: #064e3b;
+            color: #123d2b;
             font-size: 30px;
+            margin-bottom: 30px;
         }
 
         .packages {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 25px;
         }
 
@@ -113,8 +107,10 @@
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px #00000015;
-            transition: transform .3s;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+            text-align: center;
+            padding-bottom: 24px;
+            transition: transform 0.2s;
         }
 
         .card:hover {
@@ -127,127 +123,121 @@
             object-fit: cover;
         }
 
-        .card-content {
-            padding: 20px;
+        .card h3 {
+            color: #123d2b;
+            margin: 15px 0 5px;
         }
 
-        .card-content h3 {
-            color: #064e3b;
+        .card p {
+            padding: 0 15px;
             margin-bottom: 10px;
         }
 
-        .card-content p {
-            margin: 8px 0;
+        .price {
+            font-size: 21px;
+            color: #b4770a;
+            font-weight: bold;
+            margin: 12px 0;
         }
 
-        .price {
-            color: #dc7c00;
-            font-size: 22px;
-            font-weight: bold;
-            margin: 15px 0;
+        .about {
+            background: #e9efe9;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
         }
 
         .booking {
-            background: #e5f3ed;
-        }
-
-        form {
-            max-width: 600px;
+            max-width: 750px;
             margin: auto;
             background: white;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px #00000010;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
         }
 
-        form label {
+        .booking label {
             display: block;
-            margin-top: 15px;
             font-weight: bold;
+            margin: 14px 0 5px;
         }
 
-        form input,
-        form select,
-        form textarea {
-            display: block;
+        .booking input,
+        .booking select,
+        .booking textarea {
             width: 100%;
             padding: 12px;
-            margin-top: 8px;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 15px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: inherit;
         }
 
-        form button {
+        .booking textarea {
+            resize: vertical;
+        }
+
+        .booking .btn {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 22px;
         }
 
         #otherPlaceDiv {
             display: none;
         }
 
-        #message {
-            margin-top: 15px;
-            color: #064e3b;
-            font-weight: bold;
+        #confirmation {
+            display: none;
+            margin-top: 18px;
+            padding: 14px;
+            border-radius: 6px;
+            background: #e5f4e8;
+            color: #155724;
             text-align: center;
         }
 
         footer {
-            background: #064e3b;
+            background: #123d2b;
             color: white;
             text-align: center;
-            padding: 25px;
+            padding: 25px 15px;
         }
 
-        footer p {
-            margin: 8px 0;
-        }
-
-        .instagram-link {
-            color: #facc15;
+        footer a {
+            color: #ffd166;
             text-decoration: none;
-            font-weight: bold;
+            margin: 0 8px;
         }
 
-        .instagram-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Floating social media buttons */
-        .whatsapp-btn,
-        .instagram-btn {
+        .social-float {
             position: fixed;
-            bottom: 20px;
-            color: white;
-            padding: 12px 16px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 10px #0003;
+            right: 18px;
+            bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             z-index: 1000;
         }
 
-        .whatsapp-btn {
-            right: 15px;
+        .social-float a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp {
             background: #25D366;
         }
 
-        .whatsapp-btn:hover {
-            background: #128C7E;
-        }
-
-        .instagram-btn {
-            left: 15px;
-            background: linear-gradient(
-                45deg, #feda75, #fa7e1e,
-                #d62976, #962fbf, #4f5bd5
-            );
-        }
-
-        .instagram-btn:hover {
-            opacity: .85;
+        .instagram {
+            background: #C13584;
         }
 
         @media (max-width: 600px) {
@@ -257,26 +247,30 @@
             }
 
             nav {
+                display: flex;
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 4px;
+            }
+
+            .hero {
+                padding: 75px 15px;
             }
 
             .hero h2 {
                 font-size: 32px;
             }
 
-            section {
-                padding: 35px 5%;
+            .section-title {
+                font-size: 26px;
             }
 
-            form {
+            .booking {
                 padding: 20px;
-            }
-
-            .whatsapp-btn,
-            .instagram-btn {
-                bottom: 12px;
-                padding: 10px 12px;
-                font-size: 13px;
             }
         }
     </style>
@@ -286,7 +280,7 @@
 
     <!-- Header -->
     <header>
-        <h1>Pravasam Tourist Packages</h1>
+        <h1>Pravasam Tours</h1>
 
         <nav>
             <a href="#home">Home</a>
@@ -296,176 +290,193 @@
         </nav>
     </header>
 
-    <!-- Hero section -->
-    <div class="hero" id="home">
-        <h2>Explore the World</h2>
-        <p>Discover beautiful places with affordable tourist packages.</p>
+    <!-- Home -->
+    <section class="hero" id="home">
+        <h2>Explore the World with Pravasam</h2>
+        <p>Your journey, our responsibility. Create memories that last forever!</p>
         <a href="#packages" class="btn">Explore Packages</a>
-    </div>
+    </section>
 
-    <!-- Tourist packages -->
+    <!-- Tour Packages -->
     <section id="packages">
-        <h2 class="section-title">Popular Tour Packages</h2>
+        <h2 class="section-title">Our Tour Packages</h2>
 
         <div class="packages">
 
             <div class="card">
                 <img
-                    src="https://images.unsplash.com/photo-1590050752117-23a9d7fc6c48?auto=format&fit=crop&w=800&q=80"
-                    alt="Chikmagalur hills">
-                <div class="card-content">
-                    <h3>Chikmagalur</h3>
-                    <p>Duration: 2 Days / 1 Night</p>
-                    <p>Enjoy green hills, coffee estates and waterfalls.</p>
-                    <div class="price">₹3,499 / person</div>
-                    <button type="button" class="btn"
-                        onclick="selectPackage('Chikmagalur')">
-                        Book Package
-                    </button>
-                </div>
+                    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+                    alt="Chikmagalur landscape"
+                >
+                <h3>Chikmagalur</h3>
+                <p>Enjoy green hills, coffee estates and beautiful waterfalls.</p>
+                <div class="price">₹3,499 / person</div>
+                <button class="btn" onclick="selectPackage('Chikmagalur')">
+                    Book Now
+                </button>
             </div>
 
             <div class="card">
                 <img
                     src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80"
-                    alt="Kerala backwaters">
-                <div class="card-content">
-                    <h3>Kerala</h3>
-                    <p>Duration: 3 Days / 2 Nights</p>
-                    <p>Experience backwaters, beaches and beautiful nature.</p>
-                    <div class="price">₹4,999 / person</div>
-                    <button type="button" class="btn"
-                        onclick="selectPackage('Kerala')">
-                        Book Package
-                    </button>
-                </div>
+                    alt="Kerala backwaters"
+                >
+                <h3>Kerala</h3>
+                <p>Discover peaceful backwaters, nature and green landscapes.</p>
+                <div class="price">₹4,999 / person</div>
+                <button class="btn" onclick="selectPackage('Kerala')">
+                    Book Now
+                </button>
             </div>
 
             <div class="card">
                 <img
                     src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80"
-                    alt="Goa beach">
-                <div class="card-content">
-                    <h3>Goa</h3>
-                    <p>Duration: 2 Days / 1 Night</p>
-                    <p>Enjoy sunny beaches, sightseeing and sunset views.</p>
-                    <div class="price">₹6,499 / person</div>
-                    <button type="button" class="btn"
-                        onclick="selectPackage('Goa')">
-                        Book Package
-                    </button>
-                </div>
+                    alt="Goa beach"
+                >
+                <h3>Goa</h3>
+                <p>Enjoy beaches, sunsets and exciting holiday experiences.</p>
+                <div class="price">₹6,499 / person</div>
+                <button class="btn" onclick="selectPackage('Goa')">
+                    Book Now
+                </button>
             </div>
 
             <div class="card">
                 <img
-                    src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
-                    alt="Mountain scenery">
-                <div class="card-content">
-                    <h3>Manali</h3>
-                    <p>Duration: 5 Days / 4 Nights</p>
-                    <p>Explore mountain scenery, valleys and adventure spots.</p>
-                    <div class="price">₹9,999 / person</div>
-                    <button type="button" class="btn"
-                        onclick="selectPackage('Manali')">
-                        Book Package
-                    </button>
-                </div>
+                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
+                    alt="Mountain scenery"
+                >
+                <h3>Manali</h3>
+                <p>Experience mountain views, adventure and beautiful valleys.</p>
+                <div class="price">₹9,999 / person</div>
+                <button class="btn" onclick="selectPackage('Manali')">
+                    Book Now
+                </button>
             </div>
 
         </div>
     </section>
 
-    <!-- About section -->
-    <section id="about">
+    <!-- About -->
+    <section class="about" id="about">
         <h2 class="section-title">About Pravasam</h2>
-        <p style="text-align:center;">
-            Pravasam helps travellers discover amazing destinations
-            at affordable prices. We offer tour packages for families,
-            friends, students and adventure lovers.
+        <p>
+            Pravasam Tours helps you plan memorable trips with your friends,
+            family and groups. Choose your destination, share your travel
+            requirements and contact us on WhatsApp to discuss your booking.
         </p>
     </section>
 
-    <!-- Booking section -->
-    <section class="booking" id="booking">
-        <h2 class="section-title">Book Your Tour</h2>
+    <!-- Booking Form -->
+    <section id="booking">
+        <h2 class="section-title">Book Your Trip</h2>
 
-        <form id="bookingForm">
+        <div class="booking">
+            <form id="bookingForm">
 
-            <label for="name">Full Name</label>
-            <input type="text" id="name"
-                placeholder="Enter your name" required>
+                <label for="fullName">Full Name *</label>
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    required
+                >
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email"
-                placeholder="Enter your email" required>
+                <label for="email">Email Address *</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
 
-            <label for="destination">Select Destination</label>
-            <select id="destination" required>
-                <option value="">Choose a destination</option>
-                <option value="Chikmagalur">Chikmagalur</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Goa">Goa</option>
-                <option value="Manali">Manali</option>
-                <option value="Other">Other Places</option>
-            </select>
+                <label for="destination">Choose Destination *</label>
+                <select id="destination" required>
+                    <option value="">-- Select a destination --</option>
+                    <option value="Chikmagalur">Chikmagalur</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Manali">Manali</option>
+                    <option value="Other">Other Places</option>
+                </select>
 
-            <!-- Custom destination field -->
-            <div id="otherPlaceDiv">
-                <label for="otherPlace">Enter Your Preferred Place</label>
-                <input type="text" id="otherPlace"
-                    placeholder="Example: Coorg, Mysore, Ooty">
-            </div>
+                <div id="otherPlaceDiv">
+                    <label for="otherPlace">Enter Your Destination *</label>
+                    <input
+                        type="text"
+                        id="otherPlace"
+                        placeholder="Enter the place you want to visit"
+                    >
+                </div>
 
-            <label for="date">Travel Date</label>
-            <input type="date" id="date" required>
+                <label for="travelDate">Travel Date *</label>
+                <input type="date" id="travelDate" required>
 
-            <label for="people">Number of Travellers</label>
-            <input type="number" id="people"
-                min="1" value="1" required>
+                <label for="travellers">Number of Travellers *</label>
+                <input
+                    type="number"
+                    id="travellers"
+                    min="1"
+                    max="100"
+                    placeholder="Enter number of travellers"
+                    required
+                >
 
-            <label for="messageBox">Special Requests</label>
-            <textarea id="messageBox" rows="3"
-                placeholder="Any special requirements?"></textarea>
+                <label for="specialRequests">Special Requests</label>
+                <textarea
+                    id="specialRequests"
+                    rows="4"
+                    placeholder="Food preferences, pickup location, activities, etc."
+                ></textarea>
 
-            <button type="submit" class="btn">
-                Submit Booking
-            </button>
+                <button type="submit" class="btn">
+                    Submit Booking on WhatsApp
+                </button>
 
-            <p id="message" role="status"></p>
-        </form>
+                <div id="confirmation" role="status"></div>
+
+            </form>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>
-            Instagram:
-            <a class="instagram-link"
+        <p>&copy; 2026 Pravasam Tourist Packages. All rights reserved.</p>
+        <p>Travel More. Worry Less. Make Memories.</p>
+
+        <p style="margin-top: 10px;">
+            <a
                 href="https://www.instagram.com/_pravasam_tours_and_package_/"
-                target="_blank" rel="noopener noreferrer">
-                @_pravasam_tourist_packages_
-            </a>
+                target="_blank"
+                rel="noopener noreferrer"
+            >Instagram</a>
         </p>
-        <p>Pravasam Tourist Package Booking Website</p>
-        <p>Explore More. Travel Better.</p>
-        <p>&copy; 2026 Pravasam. All rights reserved.</p>
     </footer>
 
-    <!-- Floating WhatsApp button -->
-    <a class="whatsapp-btn"
-        href="https://wa.me/919353934053"
-        target="_blank" rel="noopener noreferrer">
-        WhatsApp Booking
-    </a>
+    <!-- Floating Social Links -->
+    <div class="social-float">
+        <a
+            class="whatsapp"
+            id="whatsappContact"
+            href="https://wa.me/919353934053"
+            target="_blank"
+            rel="noopener noreferrer"
+        >WhatsApp Us</a>
 
-    <!-- Floating Instagram button -->
-    <a class="instagram-btn"
-        href="https://www.instagram.com/_pravasam_tours_and_package_/"
-        target="_blank" rel="noopener noreferrer">
-        📸 Follow Us
-    </a>
+        <a
+            class="instagram"
+            href="https://www.instagram.com/_pravasam_tours_and_package_/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >Instagram</a>
+    </div>
 
     <script>
+        // IMPORTANT: Replace this with your WhatsApp number.
+        // Include country code 91. Do not use + or spaces.
+        const whatsappNumber = "919353934053";
+
         const destinationSelect =
             document.getElementById("destination");
 
@@ -475,19 +486,19 @@
         const otherPlaceInput =
             document.getElementById("otherPlace");
 
-        // Show or hide the custom destination field
+        // Show the custom destination field when "Other Places" is selected.
         destinationSelect.addEventListener("change", function () {
-            const isOther = this.value === "Other";
-
-            otherPlaceDiv.style.display = isOther ? "block" : "none";
-            otherPlaceInput.required = isOther;
-
-            if (!isOther) {
+            if (this.value === "Other") {
+                otherPlaceDiv.style.display = "block";
+                otherPlaceInput.required = true;
+            } else {
+                otherPlaceDiv.style.display = "none";
+                otherPlaceInput.required = false;
                 otherPlaceInput.value = "";
             }
         });
 
-        // Select a package from a destination card
+        // When a package card is selected, choose that destination in the form.
         function selectPackage(destination) {
             destinationSelect.value = destination;
             destinationSelect.dispatchEvent(new Event("change"));
@@ -497,13 +508,14 @@
             });
         }
 
-        // Handle booking form submission
+        // Send booking details to WhatsApp.
         document.getElementById("bookingForm").addEventListener(
-            "submit", function (event) {
+            "submit",
+            function (event) {
                 event.preventDefault();
 
                 const name =
-                    document.getElementById("name").value.trim();
+                    document.getElementById("fullName").value.trim();
 
                 const email =
                     document.getElementById("email").value.trim();
@@ -515,50 +527,60 @@
                 }
 
                 const date =
-                    document.getElementById("date").value;
+                    document.getElementById("travelDate").value;
 
-                const people =
-                    document.getElementById("people").value;
+                const travellers =
+                    document.getElementById("travellers").value;
 
-                const specialRequests =
-                    document.getElementById("messageBox").value.trim();
+                const requests =
+                    document.getElementById("specialRequests").value.trim();
 
-                const bookingDetails =
-                    "BOOKING REQUEST\n\n" +
+                const message =
+                    "NEW TOUR BOOKING - PRAVASAM\n\n" +
                     "Name: " + name + "\n" +
                     "Email: " + email + "\n" +
                     "Destination: " + destination + "\n" +
                     "Travel Date: " + date + "\n" +
-                    "Travellers: " + people + "\n" +
-                    "Special Requests: " +
-                    (specialRequests || "None");
+                    "Number of Travellers: " + travellers + "\n" +
+                    "Special Requests: " + (requests || "None") + "\n\n" +
+                    "Please contact me regarding this booking.";
 
-                // Show booking details in an alert
-                alert(
-                    "Booking Request Submitted!\n\n" +
-                    bookingDetails
-                );
-
-                // Display confirmation on the page
-                document.getElementById("message").textContent =
-                    "Thank you, " + name +
-                    "! Your booking request has been prepared.";
-
-                // Open WhatsApp with the booking details
-                const whatsappNumber = "919353934053";
-
-                if (!whatsappNumber.includes("YOURNUMBER")) {
-                    const whatsappURL =
-                        "https://wa.me/" + whatsappNumber +
-                        "?text=" + encodeURIComponent(bookingDetails);
-
-                    window.open(whatsappURL, "_blank");
+                // Check that the WhatsApp number has been changed.
+                if (whatsappNumber === "919353934053") {
+                    alert(
+                        "Please add your real WhatsApp number in the code first."
+                    );
+                    return;
                 }
 
-                // Keep the user's details visible until they choose
-                // to make another booking.
+                const whatsappURL =
+                    "https://wa.me/" +
+                    whatsappNumber +
+                    "?text=" +
+                    encodeURIComponent(message);
+
+                document.getElementById("confirmation").style.display =
+                    "block";
+
+                document.getElementById("confirmation").textContent =
+                    "Your booking details are ready. Send the message in WhatsApp to complete your enquiry.";
+
+                // Open WhatsApp with the booking details filled in.
+                const newWindow = window.open(
+                    whatsappURL,
+                    "_blank"
+                );
+
+                // Fallback if the browser blocks the new window.
+                if (!newWindow) {
+                    window.location.href = whatsappURL;
+                }
             }
         );
+
+        // Keep the floating WhatsApp contact button in sync with your number.
+        document.getElementById("whatsappContact").href =
+            "https://wa.me/" + whatsappNumber;
     </script>
 
 </body>
